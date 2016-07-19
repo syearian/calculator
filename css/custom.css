@@ -1,0 +1,50 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  background-color: #303030;
+  font-family: Lato, sans-serif;
+}
+
+main {
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+  background-color: #D9D9D9;
+  border-radius: 5px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+header h3 {
+  margin-top: 0;
+}
+
+#calcInput {
+  width: 270px;
+  margin: 0 5px 5px 5px;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button.button {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+}
+
+#decPoint {
+  font-size: 20px;
+}
+
+#equals {
+  width: 130px;
+}
