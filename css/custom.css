@@ -28,6 +28,8 @@ header h3 {
 #calcInput {
   width: 270px;
   margin: 0 5px 5px 5px;
+  padding: 5px;
+  text-align: right;
 }
 
 section {
