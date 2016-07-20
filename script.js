@@ -80,7 +80,7 @@ function ready() {
 
   var buttons = document.querySelectorAll('.button');
   for (var i = 0; i < buttons.length; i++) {
-    elements[i].addEventListener("click", function() {
+    buttons[i].addEventListener("click", function() {
       console.log("clicked");
     });
   }
