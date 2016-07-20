@@ -1,7 +1,6 @@
 var currentArr = [];
 var currentString = currentArr.join('');
-var lastInput = currentArr[currentArr.length -1];
-var decimal = false;
+var lastInput;
 var result;
 var resultField = document.getElementById('calcResult');
 var mathFuncs = {
@@ -19,14 +18,23 @@ function deleteAll() {
 }
 
 function deleteLast() {
-  currentArr.pop();
-  currentString = currentArr.join('');
-  resultField.value = currentString;
+  lastInput = currentString[currentString.length - 1];
+  var lastElem = currentArr[currentArr.length - 1];
+  if (/[\d\.]/.test(lastInput)) {
+    lastElem = lastElem.slice(0, -1);
+    currentArr[currentArr.length - 1] = lastElem;
+    currentString = currentArr.join('');
+    resultField.value = currentString;
+  } else {    
+    currentArr.pop();
+    currentString = currentArr.join('');
+    resultField.value = currentString;
+  }
 }
 
 function insertNumber(value) {
   console.log(value);
-  var lastInput = currentString[currentString.length - 1];
+  lastInput = currentString[currentString.length - 1];
   if (lastInput === '+' || lastInput === '-' || lastInput === '*' || lastInput === '/' || lastInput === '%') {
     currentArr.push(value);
     currentString = currentArr.join('');
@@ -45,7 +53,7 @@ function insertNumber(value) {
 
 function addOperator(value) {
   console.log(value)
-  var lastInput = currentString[currentString.length - 1];
+  lastInput = currentString[currentString.length - 1];
   if (currentArr[0] === undefined) {
     return;
   } else if (lastInput === '+' || lastInput === '-' || lastInput === '*' || lastInput === '/' || lastInput === '%') {
