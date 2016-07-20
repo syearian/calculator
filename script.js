@@ -111,6 +111,9 @@ function ready() {
       console.log(currentArr[i])
       console.log(mathFuncs[currentArr[i]])
       result = mathFuncs[currentArr[i]](result, parseInt(currentArr[i + 1]));
+      resultField.value = result; 
+      currentArr = [];
+      currentString = currentArr.join('');
     }    
   }
 
