@@ -35,13 +35,12 @@ function ready() {
   }
 
   function insertNumber(value) {
-    console.log(currentArr);
+    console.log(value);
     if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
       currentArr.push(value);
       currentString = currentArr.join('');
       resultField.value = currentString;
     } else if (currentArr[0] === undefined) {
-      console.log(currentArr);
       currentArr[0] = value;
       currentString = currentArr.join('');
       resultField.value = currentString;
@@ -57,7 +56,7 @@ function ready() {
     console.log(value)
     if (currentArr[0] === undefined) {
       return;
-    } else if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
+    } else if (/[%\*+-\/]/.test(currentArr[currentArr.length - 1])) {
       currentArr[currentArr.length -1] = value;
       currentString = currentArr.join('');
       resultField.value = currentString;
@@ -106,13 +105,12 @@ function ready() {
   }
 
   function equals(value) {
-    result = currentArr[0];
+    result = parseInt(currentArr[0]);
     for (var i = 1; i < currentArr.length; i += 2) {
       console.log(currentArr)
       console.log(currentArr[i])
       console.log(mathFuncs[currentArr[i]])
-      result = mathFuncs[currentArr[i]](result, currentArr[i + 1]); 
-      console.log(result)     
+      result = mathFuncs[currentArr[i]](result, parseInt(currentArr[i + 1]));
     }    
   }
 
