@@ -33,7 +33,6 @@ function deleteLast() {
 }
 
 function insertNumber(value) {
-  console.log(value);
   lastInput = currentString[currentString.length - 1];
   if (lastInput === '+' || lastInput === '-' || lastInput === '*' || lastInput === '/' || lastInput === '%') {
     currentArr.push(value);
@@ -48,11 +47,9 @@ function insertNumber(value) {
     currentString = currentArr.join('');
     resultField.value = currentString;
   }
-  console.log(currentArr);
 }
 
 function addOperator(value) {
-  console.log(value)
   lastInput = currentString[currentString.length - 1];
   if (currentArr[0] === undefined) {
     return;
@@ -60,12 +57,10 @@ function addOperator(value) {
     currentArr[currentArr.length -1] = value;
     currentString = currentArr.join('');
     resultField.value = currentString;
-    console.log(currentArr);
   } else {
     currentArr.push(value);
     currentString = currentArr.join('');
     resultField.value = currentString;
-    console.log(currentArr);
   }
 }
 
@@ -73,35 +68,30 @@ function modulus(value) {
   currentArr.push('%');
   currentString = currentArr.join('');
   resultField.value = currentString;
-  console.log(currentArr);
 }
 
 function add(value) {
   currentArr.push('+');
   currentString = currentArr.join('');
   resultField.value = currentString;
-  console.log(currentArr);
 }
 
 function subtract(value) {
   currentArr.push('-');
   currentString = currentArr.join('');
   resultField.value = currentString;
-  console.log(currentArr);
 }
 
 function multiply(value) {
   currentArr.push('*');
   currentString = currentArr.join('');
   resultField.value = currentString;
-  console.log(currentArr);
 }
 
 function divide(value) {
   currentArr.push('/');
   currentString = currentArr.join('');
   resultField.value = currentString;
-  console.log(currentArr);
 }
 
 function equals(value) {
