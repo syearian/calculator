@@ -54,6 +54,7 @@ function ready() {
   }
 
   function addOperator(value) {
+    console.log(value)
     if (currentArr[0] === undefined) {
       return;
     } else if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
@@ -104,8 +105,15 @@ function ready() {
     console.log(currentArr);
   }
 
-  function equals() {
-
+  function equals(value) {
+    result = currentArr[0];
+    for (var i = 1; i < currentArr.length; i += 2) {
+      console.log(currentArr)
+      console.log(currentArr[i])
+      console.log(mathFuncs[currentArr[i]])
+      result = mathFuncs[currentArr[i]](result, currentArr[i + 1]); 
+      console.log(result)     
+    }    
   }
 
   function getCorrectFunction(id, value) {
@@ -145,8 +153,6 @@ function ready() {
   var buttons = document.querySelectorAll('.button');
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function(event) {
-      console.log("clicked");
-      console.log(event.target.innerHTML);
       getCorrectFunction(event.target.id, event.target.innerHTML);
     });
   }
