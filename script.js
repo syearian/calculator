@@ -8,7 +8,6 @@ var everythingLoaded = setInterval(function() {
 var currentArr = [];
 var currentString = currentArr.join('');
 var lastInput = currentArr[currentArr.length -1];
-var newInput;
 var decimal = false;
 var result;
 var resultField = document.getElementById('calcResult');
@@ -36,8 +35,8 @@ function ready() {
 
   function insertNumber(value) {
     console.log(value);
-    var endString = currentString[currentString.length - 1];
-    if (endString === '+' || endString === '-' || endString === '*' || endString === '/' || endString === '%') {
+    var lastInput = currentString[currentString.length - 1];
+    if (lastInput === '+' || lastInput === '-' || lastInput === '*' || lastInput === '/' || lastInput === '%') {
       currentArr.push(value);
       currentString = currentArr.join('');
       resultField.value = currentString;
@@ -55,10 +54,10 @@ function ready() {
 
   function addOperator(value) {
     console.log(value)
-    var endString = currentString[currentString.length - 1];
+    var lastInput = currentString[currentString.length - 1];
     if (currentArr[0] === undefined) {
       return;
-    } else if (endString === '+' || endString === '-' || endString === '*' || endString === '/' || endString === '%') {
+    } else if (lastInput === '+' || lastInput === '-' || lastInput === '*' || lastInput === '/' || lastInput === '%') {
       currentArr[currentArr.length -1] = value;
       currentString = currentArr.join('');
       resultField.value = currentString;
@@ -109,9 +108,6 @@ function ready() {
   function equals(value) {
     result = parseInt(currentArr[0]);
     for (var i = 1; i < currentArr.length; i += 2) {
-      console.log(currentArr)
-      console.log(currentArr[i])
-      console.log(mathFuncs[currentArr[i]])
       result = mathFuncs[currentArr[i]](result, parseInt(currentArr[i + 1]));
       resultField.value = result; 
       currentArr = [];
