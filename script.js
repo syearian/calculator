@@ -12,11 +12,15 @@ var newInput;
 var decimal = false;
 var result;
 var resultField = document.getElementById('calcResult');
+var mathFuncs = {
+  '+': function(x, y) {return x + y},
+  '-': function(x, y) {return x - y},
+  '*': function(x, y) {return x * y},
+  '/': function(x, y) {return x / y},
+  '%': function(x, y) {return x % y},
+}
 
 function ready() {
-
-
-
 
   function deleteAll() {
     currentArr = [];
