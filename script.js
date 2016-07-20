@@ -5,37 +5,46 @@ var everythingLoaded = setInterval(function() {
   }
 }, 10);
 
+var currentArr = [];
+var currentString = currentArr.join('');
+var lastInput = currentArr[currentArr.length -1];
+var newInput;
+var decimal = false;
+var result;
+var resultField = document.getElementById('calcResult');
+
 function ready() {
 
 
-  var currentArr = [];
-  var currentString = currentArr.join();
-  var lastInput = currentArr[currentArr.length -1];
-  var newInput;
-  var decimal = false;
-  var result;
-  var resultField = document.getElementById('calcResult');
+
 
   function deleteAll() {
     currentArr = [];
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
   function deleteLast() {
     currentArr.pop();
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
-  function insertNumber() {
+  function insertNumber(value) {
+      console.log(currentArr);
     if (/\%\*\+\-\//.test(currentString[currentString.length - 1])) {
-      currentArr.push(newInput);
-      currentString = currentArr.join();
+      console.log(currentArr);
+      currentArr.push(value);
+      currentString = currentArr.join('');
+      resultField.value = currentString;
+    } else if (currentArr[0] === undefined) {
+      console.log(currentArr);
+      currentArr[0] = value;
+      currentString = currentArr.join('');
       resultField.value = currentString;
     } else {
-      currentArr[currentArr.length -1] = currentArr[currentArr.length -1] + newInput;
-      currentString = currentArr.join();
+      currentArr[currentArr.length -1] = currentArr[currentArr.length -1] + value;
+      currentString = currentArr.join('');
       resultField.value = currentString;
     }
   }
@@ -46,31 +55,31 @@ function ready() {
 
   function modulus() {
     currentArr.push('%');
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
   function add() {
     currentArr.push('+');
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
   function subtract() {
     currentArr.push('-');
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
   function multiply() {
     currentArr.push('*');
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
   function divide() {
     currentArr.push('/');
-    currentString = currentArr.join();
+    currentString = currentArr.join('');
     resultField.value = currentString;
   }
 
