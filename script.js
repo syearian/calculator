@@ -64,36 +64,6 @@ function addOperator(value) {
   }
 }
 
-function modulus(value) {
-  currentArr.push('%');
-  currentString = currentArr.join('');
-  resultField.value = currentString;
-}
-
-function add(value) {
-  currentArr.push('+');
-  currentString = currentArr.join('');
-  resultField.value = currentString;
-}
-
-function subtract(value) {
-  currentArr.push('-');
-  currentString = currentArr.join('');
-  resultField.value = currentString;
-}
-
-function multiply(value) {
-  currentArr.push('*');
-  currentString = currentArr.join('');
-  resultField.value = currentString;
-}
-
-function divide(value) {
-  currentArr.push('/');
-  currentString = currentArr.join('');
-  resultField.value = currentString;
-}
-
 function equals(value) {
   result = parseFloat(currentArr[0]);
   for (var i = 1; i < currentArr.length; i += 2) {
