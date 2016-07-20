@@ -49,39 +49,49 @@ function ready() {
     console.log(currentArr);
   }
 
-  function insertDecimal() {
-
+  function addOperator(value) {
+    if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
+      currentArr[currentArr.length -1] = value;
+      currentString = currentArr.join('');
+      resultField.value = currentString;
+      console.log(currentArr);
+    } else {
+      currentArr.push(value);
+      currentString = currentArr.join('');
+      resultField.value = currentString;
+      console.log(currentArr);
+    }
   }
 
-  function modulus() {
+  function modulus(value) {
     currentArr.push('%');
     currentString = currentArr.join('');
     resultField.value = currentString;
     console.log(currentArr);
   }
 
-  function add() {
+  function add(value) {
     currentArr.push('+');
     currentString = currentArr.join('');
     resultField.value = currentString;
     console.log(currentArr);
   }
 
-  function subtract() {
+  function subtract(value) {
     currentArr.push('-');
     currentString = currentArr.join('');
     resultField.value = currentString;
     console.log(currentArr);
   }
 
-  function multiply() {
+  function multiply(value) {
     currentArr.push('*');
     currentString = currentArr.join('');
     resultField.value = currentString;
     console.log(currentArr);
   }
 
-  function divide() {
+  function divide(value) {
     currentArr.push('/');
     currentString = currentArr.join('');
     resultField.value = currentString;
@@ -108,19 +118,11 @@ function ready() {
         insertNumber(value);
         break;
       case "plus":
-        add();
-        break;
       case "minus":
-        subtract();
-        break;
       case "multiply":
-        multiply();
-        break;
       case "divide":
-        divide();
-        break;
       case "modulus":
-        modulus();
+        addOperator(value);
         break;
       case "AC":
         deleteAll();
