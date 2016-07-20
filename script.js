@@ -108,10 +108,10 @@ function equals(value) {
   result = parseFloat(currentArr[0]);
   for (var i = 1; i < currentArr.length; i += 2) {
     result = mathFuncs[currentArr[i]](result, parseFloat(currentArr[i + 1]));
-    resultField.value = result; 
-    currentArr = [];
-    currentString = currentArr.join('');
-  }    
+  }
+  resultField.value = result; 
+  currentArr = [];
+  currentString = currentArr.join('');
 }
 
 function getCorrectFunction(id, value) {
