@@ -31,9 +31,8 @@ function ready() {
   }
 
   function insertNumber(value) {
-      console.log(currentArr);
-    if (/\%\*\+\-\//.test(currentString[currentString.length - 1])) {
-      console.log(currentArr);
+    console.log(currentArr);
+    if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
       currentArr.push(value);
       currentString = currentArr.join('');
       resultField.value = currentString;
@@ -47,6 +46,7 @@ function ready() {
       currentString = currentArr.join('');
       resultField.value = currentString;
     }
+    console.log(currentArr);
   }
 
   function insertDecimal() {
@@ -57,30 +57,35 @@ function ready() {
     currentArr.push('%');
     currentString = currentArr.join('');
     resultField.value = currentString;
+    console.log(currentArr);
   }
 
   function add() {
     currentArr.push('+');
     currentString = currentArr.join('');
     resultField.value = currentString;
+    console.log(currentArr);
   }
 
   function subtract() {
     currentArr.push('-');
     currentString = currentArr.join('');
     resultField.value = currentString;
+    console.log(currentArr);
   }
 
   function multiply() {
     currentArr.push('*');
     currentString = currentArr.join('');
     resultField.value = currentString;
+    console.log(currentArr);
   }
 
   function divide() {
     currentArr.push('/');
     currentString = currentArr.join('');
     resultField.value = currentString;
+    console.log(currentArr);
   }
 
   function equals() {
