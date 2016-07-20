@@ -106,9 +106,9 @@ function ready() {
   }
 
   function equals(value) {
-    result = parseInt(currentArr[0]);
+    result = parseFloat(currentArr[0]);
     for (var i = 1; i < currentArr.length; i += 2) {
-      result = mathFuncs[currentArr[i]](result, parseInt(currentArr[i + 1]));
+      result = mathFuncs[currentArr[i]](result, parseFloat(currentArr[i + 1]));
       resultField.value = result; 
       currentArr = [];
       currentString = currentArr.join('');
