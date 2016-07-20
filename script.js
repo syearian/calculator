@@ -36,7 +36,8 @@ function ready() {
 
   function insertNumber(value) {
     console.log(value);
-    if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
+    var endString = currentString[currentString.length - 1];
+    if (endString === '+' || endString === '-' || endString === '*' || endString === '/' || endString === '%') {
       currentArr.push(value);
       currentString = currentArr.join('');
       resultField.value = currentString;
@@ -54,9 +55,10 @@ function ready() {
 
   function addOperator(value) {
     console.log(value)
+    var endString = currentString[currentString.length - 1];
     if (currentArr[0] === undefined) {
       return;
-    } else if (/[%\*+-\/]/.test(currentArr[currentArr.length - 1])) {
+    } else if (endString === '+' || endString === '-' || endString === '*' || endString === '/' || endString === '%') {
       currentArr[currentArr.length -1] = value;
       currentString = currentArr.join('');
       resultField.value = currentString;
