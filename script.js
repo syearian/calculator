@@ -50,7 +50,9 @@ function ready() {
   }
 
   function addOperator(value) {
-    if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
+    if (currentArr[0] === undefined) {
+      return;
+    } else if (/[%\*+-\/]/.test(currentString[currentString.length - 1])) {
       currentArr[currentArr.length -1] = value;
       currentString = currentArr.join('');
       resultField.value = currentString;
